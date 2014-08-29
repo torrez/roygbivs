@@ -1,7 +1,7 @@
 import os
 
 import tornado.web
-from handlers import home, markup
+from handlers import home, markup, images
 
 class RoygbivsApplication(tornado.web.Application):
     
@@ -49,6 +49,7 @@ def make_application(environment=RoygbivsApplication.DEVELOPMENT):
     app =  RoygbivsApplication([
         (r"/", home.IndexHandler),
         (r"/og/?(.*)", markup.OGHandler),
+        (r"/i/(\w+)\.(png|jpg|gif)", images.ImageHandler),
     ], **app_settings)
 
     return app
