@@ -7,8 +7,8 @@ from PIL import Image, ImageDraw, ImageColor
 from base import BaseHandler
 
 class ImageHandler(BaseHandler):
-    def _make_hex_from_string(self, some_string):
-        if some_string == "":
+    def _make_hex_from_string(self, some_string=None):
+        if not some_string:
             return "#000000"
 
         m = hashlib.md5()
