@@ -28,9 +28,7 @@ class TwitterHandler(BaseHandler):
         page_type = "summary"
         page_url = "http://roygbivs.herokupapp.com/twitter/{0}".format(randomness)
         page_image = "http://roygbivs.herokuapp.com/i/{0}.png".format(self.random_string)
-        page_description = """Here is a bunch of text that is going to be 
-                                randomized shortly. Meanwhile it is multi-line
-                                and there are some < characters in it. <script>"""
+        page_description = """Here is a bunch of text that is going to be """
         self.render("twitter.html", page_title=page_title,
                     page_type=page_type, page_url=page_url,
                     page_image=page_image, page_description=page_description)
