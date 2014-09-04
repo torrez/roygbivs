@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block header %}
+<meta name="twitter:card" content="{{page_type}}">
+<meta name="twitter:url" content="{{page_url}}">
+<meta name="twitter:title" content="{{page_title}}">
+<meta name="twitter:description" content="{{page_description}}">
+<meta name="twitter:image" content="{{page_image}}">
+{% end %}
+{% block main %}
+<pre>
+&lt;meta name="twitter:card" content="{{page_type}}"&gt;
+&lt;meta name="twitter:url" content="{{page_url}}"&gt;
+&lt;meta name="twitter:title" content="{{page_title}}"&gt;
+&lt;meta name="twitter:description" content="{{page_description}}"&gt;
+&lt;meta name="twitter:image" content="{{page_image}}"&gt;
+</pre>
+{% end %}
