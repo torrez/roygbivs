@@ -3,16 +3,17 @@ import os
 import tornado.web
 from handlers import home, markup, images
 
+
 class RoygbivsApplication(tornado.web.Application):
-    
+
     DEVELOPMENT = 1
     PRODUCTION = 2
     TESTING = 3
 
     @classmethod
     def get_environment(cls, env_string="development"):
-        environments = dict(development = cls.DEVELOPMENT,
-                production = cls.PRODUCTION, testing = cls.TESTING)
+        environments = dict(development=cls.DEVELOPMENT,
+                            production=cls.PRODUCTION, testing=cls.TESTING)
         try:
             return environments[env_string]
         except:
@@ -33,7 +34,7 @@ class RoygbivsApplication(tornado.web.Application):
         if environment == cls.DEVELOPMENT:
             debug = True
         return {
-            "login_url": "/sign-in", #unecessary
+            "login_url": "/sign-in",  # unecessary
             "static_path": os.path.join(dirname, "static"),
             "template_path":  os.path.join(dirname, "templates"),
             "debug": debug,
@@ -43,10 +44,11 @@ class RoygbivsApplication(tornado.web.Application):
     def __init__(self, *args, **settings):
         super(RoygbivsApplication, self).__init__(*args, **settings)
 
+
 def make_application(environment=RoygbivsApplication.DEVELOPMENT):
     app_settings = RoygbivsApplication.app_settings(environment)
 
-    app =  RoygbivsApplication([
+    app = RoygbivsApplication([
         (r"/", home.IndexHandler),
         (r"/og/?(.*)", markup.OGHandler),
         (r"/i/(\w+)\.(png|jpg|gif)", images.ImageHandler),
