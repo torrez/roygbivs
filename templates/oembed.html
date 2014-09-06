@@ -1,0 +1,12 @@
+
+{% extends "base.html" %}
+
+{% block header %}
+<link rel="alternate" type="application/json+oembed" 
+    href="/oembed?url={{page_url}}" title="{{page_title}}">
+{% end %}
+{% block main %}
+<pre>
+&lt;link rel="alternate" type="application/json+oembed" href="/oembed?url={{page_url}}" title="{{page_title}}"&gt;
+</pre>
+{% end %}

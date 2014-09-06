@@ -50,8 +50,10 @@ def make_application(environment=RoygbivsApplication.DEVELOPMENT):
 
     app = RoygbivsApplication([
         (r"/", home.IndexHandler),
-        (r"/og/?(.*)", markup.OGHandler),
-        (r"/twitter/?(.*)", markup.TwitterHandler),
+        (r"/og/(.*)", markup.OGHandler),
+        (r"/twitter/(.*)", markup.TwitterHandler),
+        (r"/oembed/(.*)", markup.OembedHandler),
+        (r"/oembed", markup.OembedServiceHandler),
         (r"/i/(\w+)\.(png|jpg|gif)", images.ImageHandler),
     ], **app_settings)
 
